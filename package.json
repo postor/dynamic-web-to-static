@@ -1,0 +1,36 @@
+{
+  "name": "dynamic-web-to-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "run": "node dist/start.js",
+    "example": "node build/start.js -u http://soft.antutu.com",
+    "dev": "npm run build && npm run example",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/dynamic-web-to-static.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/dynamic-web-to-static/issues"
+  },
+  "homepage": "https://github.com/postor/dynamic-web-to-static#readme",
+  "dependencies": {
+    "crc-32": "^1.2.0",
+    "fs-extra": "^8.1.0",
+    "puppeteer": "^2.0.0",
+    "replaceall": "^0.1.6",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/puppeteer": "^2.0.0",
+    "@types/yargs": "^13.0.4"
+  }
+}
