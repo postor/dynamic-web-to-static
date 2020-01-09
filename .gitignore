@@ -4,3 +4,4 @@ generated
 yarn-error.log
 dist
 build
+test.js

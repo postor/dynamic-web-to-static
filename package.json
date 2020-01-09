@@ -7,7 +7,8 @@
     "build": "tsc",
     "run": "node dist/start.js",
     "example": "node build/start.js -u http://soft.antutu.com",
-    "dev": "npm run build && npm run example",
+    "dev": "npm run build && rm ./generated/* -r && npm run example",
+    "serve": "http-server ./generated",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,14 +24,20 @@
   "homepage": "https://github.com/postor/dynamic-web-to-static#readme",
   "dependencies": {
     "crc-32": "^1.2.0",
+    "death": "^1.1.0",
     "fs-extra": "^8.1.0",
+    "keypress": "^0.2.1",
+    "mime-types": "^2.1.26",
     "puppeteer": "^2.0.0",
     "replaceall": "^0.1.6",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
+    "@types/death": "^1.1.0",
     "@types/fs-extra": "^8.0.1",
+    "@types/mime-types": "^2.1.0",
     "@types/puppeteer": "^2.0.0",
-    "@types/yargs": "^13.0.4"
+    "@types/yargs": "^13.0.4",
+    "http-server": "^0.12.1"
   }
 }
