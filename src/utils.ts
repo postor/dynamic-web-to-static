@@ -86,33 +86,12 @@ export async function replaceLinkInFiles(sync = false) {
           // console.log([from, to])
           if (!from) return prev
           if (from === to) return prev
-          return replaceAll(from, to, prev)
+          let t = replaceAll(`"${from}"`, `"${to}"`, prev)
+          return replaceAll(`'${from}'`, `'${to}'`, t)
         }, prev)
       }, content)
     sync ? writeFileSync(filePath, content) : await writeFile(filePath, content)
     console.log(`file ${filePath} updated!`)
-  }
-}
-
-export function replaceLinkInFilesSync() {
-  for (let filePath in saveDic) {
-    if (!needModify(filePath)) continue
-    console.log('needModify', filePath)
-    let content = readFileSync(filePath, 'utf-8')
-    content = Object.entries(replaceDic)
-      .sort(([k1, v1], [k2, v2]) => v2.length - v1.length)
-      .reduce((prev, [key, value]) => {
-        // console.log(`replace [${key}] to [${relativeUrl(value)}]`)
-        const to = relativeUrl(value)
-        const froms = needReplacedUrls(key)
-        return froms.reduce((prev, from) => {
-          console.log([from, to])
-          if (!from) return prev
-          if (from === to) return prev
-          return replaceAll(from, to, prev)
-        }, prev)
-      }, content)
-    writeFileSync(filePath, content)
   }
 }
 
