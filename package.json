@@ -7,7 +7,7 @@
     "build": "tsc",
     "run": "node dist/start.js",
     "example": "node build/start.js -u http://soft.antutu.com",
-    "dev": "npm run build && rm ./generated/* -r && npm run example",
+    "dev": "npm run build && npm run example",
     "serve": "http-server ./generated",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
