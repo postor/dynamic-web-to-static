@@ -2,6 +2,8 @@
 
 从动态网站生成静态内容 | generate static site from dynamic
 
+quick glance: https://www.youtube.com/watch?v=mTlFHIxuEVo&list=PLM1v95K5B1ntVsYvNJIxgRPppngrO_X4s
+
 ## usage | 使用方法
 
 ```
