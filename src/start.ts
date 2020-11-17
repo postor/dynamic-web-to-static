@@ -19,7 +19,7 @@ queue.push(config["base-url"] + '/')
 
   ;
 (async () => {
-  await browser.init({ headless: false, devtools: true })
+  await browser.init({ headless: true })//{ headless: false, devtools: true })
   let url = queue.pop()
   while (url && working) {
     await crawlPage(url)

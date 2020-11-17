@@ -7,7 +7,7 @@ export const push = (rawUrl = '') => {
   let url = fullUrl(rawUrl)
   if (!url) return
   if (set.has(url)) return
-  console.log({ url, rawUrl })
+  // console.log({ url, rawUrl })
   set.add(url)
   queue.push(url)
   url2path(url)

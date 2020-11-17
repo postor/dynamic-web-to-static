@@ -1,6 +1,6 @@
 node_modules
 yarn.lock
-generated
+generated*
 yarn-error.log
 dist
 build

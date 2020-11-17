@@ -13,6 +13,7 @@ const basePath = config["output-path"]
 const replaceDic: { [key: string]: string; } = {}
 const saveDic: { [key: string]: boolean; } = {}
 
+
 export const fullUrl = (url = '') => {
   if (url.startsWith('/')) return baseUrl + url
   if (url.startsWith('http')) return url
@@ -50,6 +51,7 @@ function relativeUrl(filePath = '') {
 export function url2path(url = '', options = {}) {
   if (replaceDic[url]) return replaceDic[url]
 
+  const exts2html = ['.php', '.jsp', '.asp', '.shtml']
   const { pathname, search } = new URL(url)
   let relativePath = pathname
     , targetExt = '.html'
@@ -61,10 +63,11 @@ export function url2path(url = '', options = {}) {
   }
   if (ext) {
     relativePath = relativePath.substring(0, relativePath.length - ext.length)
+    if (!exts2html.includes(ext)) targetExt = ext
   }
   relativePath = decodeURIComponent(relativePath)
   if (searchCrc && needCrc32(pathname)) relativePath = `${relativePath}-${searchCrc}`
-  relativePath += (ext || targetExt)
+  relativePath += targetExt
   if (relativePath.startsWith('/')) relativePath = relativePath.substring(1)
   let fullPath = join(basePath, ...(relativePath.split('/')))
   replaceDic[url] = fullPath
